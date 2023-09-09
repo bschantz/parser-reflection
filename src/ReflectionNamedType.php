@@ -24,19 +24,19 @@ class ReflectionNamedType extends BaseReflectionNamedType
      *
      * @var bool
      */
-    private $allowsNull;
+    private bool $allowsNull;
 
     /**
      * Is type built-in or not
      *
      * @var
      */
-    private $isBuiltin;
+    private bool $isBuiltin;
 
     /**
      * @var string Type name
      */
-    private $type;
+    private string $type;
 
     /**
      * Initializes reflection data
@@ -51,7 +51,7 @@ class ReflectionNamedType extends BaseReflectionNamedType
     /**
      * @inheritDoc
      */
-    public function allowsNull()
+    public function allowsNull(): bool
     {
         return $this->allowsNull;
     }
@@ -59,7 +59,7 @@ class ReflectionNamedType extends BaseReflectionNamedType
     /**
      * @inheritDoc
      */
-    public function isBuiltin()
+    public function isBuiltin(): bool
     {
         return $this->isBuiltin;
     }
@@ -67,7 +67,7 @@ class ReflectionNamedType extends BaseReflectionNamedType
     /**
      * @inheritDoc
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->type;
     }
@@ -75,7 +75,7 @@ class ReflectionNamedType extends BaseReflectionNamedType
     /**
      * @inheritDoc
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->type;
     }

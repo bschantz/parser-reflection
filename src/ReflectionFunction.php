@@ -67,7 +67,7 @@ class ReflectionFunction extends BaseReflectionFunction
     /**
      * {@inheritDoc}
      */
-    public function getClosure()
+    public function getClosure(): Closure
     {
         $this->initializeInternalReflection();
 
@@ -77,7 +77,7 @@ class ReflectionFunction extends BaseReflectionFunction
     /**
      * {@inheritDoc}
      */
-    public function invoke($args = null)
+    public function invoke(mixed ...$args): mixed
     {
         $this->initializeInternalReflection();
 
@@ -87,7 +87,7 @@ class ReflectionFunction extends BaseReflectionFunction
     /**
      * {@inheritDoc}
      */
-    public function invokeArgs(array $args)
+    public function invokeArgs(array $args): mixed
     {
         $this->initializeInternalReflection();
 
@@ -100,7 +100,7 @@ class ReflectionFunction extends BaseReflectionFunction
      * Only internal functions can be disabled using disable_functions directive.
      * User-defined functions are unaffected.
      */
-    public function isDisabled()
+    public function isDisabled(): bool
     {
         return false;
     }
@@ -132,6 +132,8 @@ class ReflectionFunction extends BaseReflectionFunction
 
     /**
      * Implementation of internal reflection initialization
+     * @throws \ReflectionException
+     * @noinspection MagicMethodsValidityInspection
      */
     protected function __initialize(): void
     {

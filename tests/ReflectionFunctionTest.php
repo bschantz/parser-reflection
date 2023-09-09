@@ -30,9 +30,13 @@ class ReflectionFunctionTest extends TestCase
         $allNameGetters = [
             'getStartLine', 'getEndLine', 'getDocComment', 'getExtension', 'getExtensionName',
             'getName', 'getNamespaceName', 'getShortName', 'inNamespace', 'getStaticVariables',
-            'getNumberOfParameters', 'getNumberOfRequiredParameters', '__toString', 'isDisabled',
+            'getNumberOfParameters', 'getNumberOfRequiredParameters', '__toString',
             'returnsReference', 'getClosureScopeClass', 'getClosureThis'
         ];
+
+        if (PHP_VERSION_ID < 80000) {
+            $allNameGetters[] = 'isDisabled';
+        }
 
         if (PHP_VERSION_ID >= 70000) {
             $allNameGetters[] = 'hasReturnType';
@@ -72,7 +76,7 @@ class ReflectionFunctionTest extends TestCase
         }
 
         if ($allMissedMethods) {
-            $this->markTestIncomplete('Methods ' . join($allMissedMethods, ', ') . ' are not implemented');
+            $this->markTestIncomplete('Methods ' . implode(', ', $allMissedMethods) . ' are not implemented');
         }
     }
 

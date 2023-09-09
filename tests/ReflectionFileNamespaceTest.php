@@ -63,7 +63,7 @@ class ReflectionFileNamespaceTest extends TestCase
             array(
                 'START_MARKER' => 9,
                 'NAMESPACE_NAME' => 'Go\ParserReflection\Stub',
-                'FILE_NAME' => __DIR__ . self::STUB_FILE,
+                'FILE_NAME' => realpath(__DIR__ . self::STUB_FILE),
                 'END_MARKER' => 26,
                 'INT_CONST' => 5,
             ),
@@ -76,7 +76,7 @@ class ReflectionFileNamespaceTest extends TestCase
             array(
                 'START_MARKER' => 9,
                 'NAMESPACE_NAME' => 'Go\ParserReflection\Stub',
-                'FILE_NAME' => __DIR__ . self::STUB_FILE,
+                'FILE_NAME' => realpath(__DIR__ . self::STUB_FILE),
                 'END_MARKER' => 26,
             ),
             $constValue
